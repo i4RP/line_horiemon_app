@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'line/bot'
+require 'mail'
 
 # 微小変更部分！確認用。
 get '/' do
@@ -39,6 +40,6 @@ post '/callback' do
       end
     end
   }
-
+  puts event.message['text']
   "OK"
 end
