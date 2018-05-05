@@ -32,6 +32,7 @@ post '/callback' do
           type: 'text',
           text: event.message['text']
         }
+          puts event.message['text']
         client.reply_message(event['replyToken'], message)
       when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
         response = client.get_message_content(event.message['id'])
@@ -40,6 +41,5 @@ post '/callback' do
       end
     end
   }
-  puts event.message['text']
   "OK"
 end
