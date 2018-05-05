@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'line/bot'
+require 'mail'
 
 # 微小変更部分！確認用。
 get '/' do
@@ -31,7 +32,38 @@ post '/callback' do
           type: 'text',
           text: event.message['text']
         }
-        puts event.message['text']
+        #メール送信
+        mail_from   = 'shoei0205@gmail.com'
+        mail_passwd = 'ieoouhnfaxrebkcc'
+        mail_to     = 'darvish0205@gmail.com'
+        mail_subject= 'テスト'
+        mail_body   = 'テスト'
+
+        Mail.defaults do
+          delivery_method :smtp, {
+            :address => 'smtp.gmail.com',
+            :port => 587,
+            :domain => 'example.com',
+            :user_name => "#{mail_from}",
+            :password => "#{mail_passwd}",
+            :authentication => :login,
+            :enable_starttls_auto => true
+          }
+        end
+
+        m = Mail.new do
+          from "#{mail_from}"
+          to "#{mail_to}"
+          subject "#{mail_subject}"
+          body &lt;&lt;EOS
+        #{mail_body}
+        EOS
+        end
+
+        m.charset = "UTF-8"
+        m.content_transfer_encoding = "8bit"
+        m.deliver
+
         client.reply_message(event['replyToken'], message)
       when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
         response = client.get_message_content(event.message['id'])
