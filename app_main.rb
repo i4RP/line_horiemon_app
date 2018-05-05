@@ -55,9 +55,7 @@ post '/callback' do
           from "#{mail_from}"
           to "#{mail_to}"
           subject "#{mail_subject}"
-          body &lt;&lt;EOS
-        #{mail_body}
-        EOS
+          body "#{mail_body}"
         end
 
         m.charset = "UTF-8"
