@@ -40,7 +40,8 @@ post '/callback' do
         mail_body   = "
         ・登録メールアドレス：shoei0205@gmail.com
         ・購読媒体名：まぐまぐ
-        ・質問：#{event.message['text']}"
+        ・質問：現在僕は大学一年生で、ダルビッシュ杉田という芸名でブロックチェーン関連の事業をしています。
+        #{event.message['text']}"
 
         Mail.defaults do
           delivery_method :smtp, {
