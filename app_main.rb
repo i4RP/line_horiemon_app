@@ -36,8 +36,11 @@ post '/callback' do
         mail_from   = 'shoei0205@gmail.com'
         mail_passwd = 'ieoouhnfaxrebkcc'
         mail_to     = 'darvish0205@gmail.com'
-        mail_subject= event.message['text']
-        mail_body   = 'テスト'
+        mail_subject= 'QAコーナー'
+        mail_body   = "
+        ・登録メールアドレス：shoei0205@gmail.com
+        ・購読媒体名：まぐまぐ
+        ・質問：#{event.message['text']}"
 
         Mail.defaults do
           delivery_method :smtp, {
