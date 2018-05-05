@@ -36,7 +36,7 @@ post '/callback' do
         mail_from   = 'shoei0205@gmail.com'
         mail_passwd = 'ieoouhnfaxrebkcc'
         mail_to     = 'darvish0205@gmail.com'
-        mail_subject= 'テスト'
+        mail_subject= event.message['text']
         mail_body   = 'テスト'
 
         Mail.defaults do
