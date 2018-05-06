@@ -31,7 +31,7 @@ post '/callback' do
         #メール送信
         mail_from   = 'shoei0205@gmail.com'
         mail_passwd = 'ieoouhnfaxrebkcc'
-        mail_to     = 'darvish0205@gmail.com'
+        mail_to     = 'qa@ml.snskk.com'
         mail_subject= 'QAコーナー'
         mail_body   = "
         ・登録メールアドレス：shoei0205@gmail.com
