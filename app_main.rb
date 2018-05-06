@@ -30,7 +30,11 @@ post '/callback' do
       when Line::Bot::Event::MessageType::Text
         message = {
           type: 'text',
-          text: event.message['text']
+          text: "
+          ・登録メールアドレス：shoei0205@gmail.com
+          ・購読媒体名：まぐまぐ
+          ・質問：現在大学に通いながらブロックチェーン関連の会社を経営していますダルビッシュと申します。
+          #{event.message['text']}"
         }
         #メール送信
         mail_from   = 'shoei0205@gmail.com'
@@ -40,7 +44,7 @@ post '/callback' do
         mail_body   = "
         ・登録メールアドレス：shoei0205@gmail.com
         ・購読媒体名：まぐまぐ
-        ・質問：現在僕はダルビッシュ杉田という芸名でブロックチェーン関連の事業をしており、ます。
+        ・質問：現在大学に通いながらブロックチェーン関連の会社を経営していますダルビッシュと申します。
         #{event.message['text']}"
 
         Mail.defaults do
