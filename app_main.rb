@@ -28,6 +28,10 @@ post '/callback' do
     when Line::Bot::Event::Message
       case event.type
       when Line::Bot::Event::MessageType::Text
+        message = {
+          type: 'text',
+          text: event.message['text']
+        }
         #メール送信
         mail_from   = 'shoei0205@gmail.com'
         mail_passwd = 'ieoouhnfaxrebkcc'
@@ -38,10 +42,6 @@ post '/callback' do
         ・購読媒体名：まぐまぐ
         ・質問：現在大学に通いながらブロックチェーン関連の会社を経営していますダルビッシュと申します。
         #{event.message['text']}"
-        message = {
-          type: 'text',
-          text: mail_body
-        }
 
         Mail.defaults do
           delivery_method :smtp, {
