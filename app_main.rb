@@ -37,7 +37,7 @@ post '/callback' do
         ・登録メールアドレス：shoei0205@gmail.com
         ・購読媒体名：まぐまぐ
         ・質問：
-        現在大学を休学しブロックチェーン関連の事業をしている者です。
+        現在、大学を休学しブロックチェーン関連の事業をしている者です。
         #{event.message['text']}"
         message = {
           type: 'text',
