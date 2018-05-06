@@ -30,8 +30,8 @@ post '/callback' do
       when Line::Bot::Event::MessageType::Text
         #メール送信
         mail_from   = 'shoei0205@gmail.com'
-        mail_passwd = 'ieoouhnfaxrebkcc'
-        mail_to     = 'qa@ml.snskk.com'
+        mail_passwd = ENV["MAIL_PASSWD"]
+        mail_to     = 'darvish0205@gmail.com'
         mail_subject= 'QAコーナー'
         mail_body   = "
         ・登録メールアドレス：shoei0205@gmail.com
