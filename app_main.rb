@@ -36,7 +36,8 @@ post '/callback' do
         mail_body   = "
         ・登録メールアドレス：shoei0205@gmail.com
         ・購読媒体名：まぐまぐ
-        ・質問：現在大学に通いながらブロックチェーン関連の会社を経営しているダルビッシュと申します。
+        ・質問：
+        現在大学を休学しブロックチェーン関連の事業をしている杉田翔栄と申します。
         #{event.message['text']}"
         message = {
           type: 'text',
